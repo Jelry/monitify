@@ -1,0 +1,270 @@
+*{
+    margin:0;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.wrapper {
+    margin-top: 60px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(255, 255, 255);
+    
+}
+.wrapperRegister{
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgb(255, 255, 255);
+}
+.logoPart{
+   
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    transition: .5s;
+    padding-top: 220px;
+    margin-right: 40px;
+    
+}
+.loginFormPart{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 200px;
+    color: grey;
+    padding-right: 300px;
+    margin:0px;
+    padding-left: 240px;
+    margin-top:50px ;
+    transition: .5s;
+}
+.loginFormPart .reg{
+    padding-top:20px;
+}
+
+
+.wrapper .logoPart img {
+    height: 40px;
+    width: 300px;
+    transition: .5s;
+}
+.loginFormPart .logintext{
+    margin-bottom: 50px;
+    color: rgb(97, 97, 97);
+}
+
+.loginFormPart .input{
+    border-color:rgb(255, 255, 255);
+    border-radius: 5px;
+    margin: 20px;
+    height: 10px;
+    outline:none;
+    width: 150px;
+    
+    outline: none;
+    border: 1px solid #ffffff;
+    border-bottom: 1.2px solid #12af61;
+    font-size: 15px;
+    padding: 8px ;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+.loginFormPart .dropdown{
+    margin:20px
+}
+.loginFormPart .input:hover{
+    border: 1px solid #12af61;
+    width: 160px;
+    
+}   
+.loginFormPart .input:active{
+    width: 160px;
+}
+.loginFormPart .btnLogin{
+    height: 40px;
+    margin-top: 5px;
+    
+    
+    border:none;
+    color: white;
+    cursor: pointer;
+    transition: .5s;
+    background-color: #12af61;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 7px;
+} 
+.loginFormPart .btnLogin:hover{
+    background-color: #306348;
+    transform: scale(1.15);
+    box-shadow: 1px 5px 15px rgba(0,0,0,0.9);
+}
+.loginFormPart a{
+    text-decoration: none;
+    color: grey;
+    transition: .5s;
+}
+.loginFormPart a:hover{
+    text-shadow:1px 5px 15px rgba(0,0,0,0.9);
+}
+.logoPartRegister{
+    
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    margin: 0px;
+    padding-top: 160px;
+}
+.logoPartRegister img{
+    height: 40px;
+    width: 300px;
+    margin-left: 0px;
+    padding-top: 50px;
+    background-color: rgb(255, 255, 255);
+}
+.modal{
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    transition: 1s;
+}
+#myModal{
+    background-color: rgba(87, 87, 87, 0.63);
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    color:#555252;
+    border-radius: 17px;
+    
+  }
+
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modalformwrapper{
+    max-width: 500px;
+    width: 100%;
+    background: #fff;
+    margin: 50px auto;
+   
+    padding: 30px;
+  }
+  .modalformwrapper .form{
+    width: 100%;
+  }
+  .modalformwrapper .form .inputfield{
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+  
+  }
+  .modalformwrapper .form .inputfield label{
+    width: 200px;
+    color: #757575;
+    margin-right: 10px;
+   font-size: 14px;
+ }
+ .modalformwrapper .form .inputfield .input,
+.modalformwrapper .form .inputfield .textarea{
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+.modalformwrapper .form .inputfield .textarea{
+    width: 100%;
+    height: 125px;
+    resize: none;
+  }
+  .modalformwrapper .form .inputfield .btn{
+    width: 100%;
+     padding: 8px 10px;
+    font-size: 15px; 
+    border: 0px;
+    background:  #12af61;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+    transition: .5s;
+  }
+  .modalformwrapper .form .inputfield .btn:hover{
+    background: #13eb7b;
+  }  
+  .modalformwrapper .title{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 55px;
+    color: #12af61;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .dropdown{
+    margin-bottom: 10px;
+    height: 30px;
+    width: 220px;
+    border-color: white;
+    border-bottom-color:#12af61;
+    color: rgb(114, 101, 101);
+    transition: 0.5s;
+    outline:none;
+  }
+  .dropdown:active {
+    border-color: white;
+    border-bottom-color:rgb(141, 134, 134);
+    color: rgb(114, 101, 101);
+  }
+  .dropdown:hover{
+   border-color: #12af61;
+  }
+  .weekdropdown h4 {
+    padding-right: 30px;
+  }
+  .eyee {
+   
+    width: 13px;
+    height: 13px;
+    border: solid 1px rgb(90, 90, 90);
+    border-radius:  75% 15%;
+    position:absolute;
+    right: 320px;
+    bottom: 275px;
+    transform: rotate(45deg);
+    background-color: rgb(255, 255, 255);
+  }
+.eyecle{
+  width: 8px;
+  height: 15px;
+  border: solid 1px rgb(104, 104, 104);
+  border-radius:  75% 15%;
+  
+  transform: rotate(15deg);
+  background-color: rgb(255, 255, 255);
+}

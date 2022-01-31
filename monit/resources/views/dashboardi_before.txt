@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<!--
+DATABASE:
+		Subject = conrecs
+-->
+<html>
+	<head>
+		<title>Monitify({{$LoggedUserInfo['name']}})</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link href="{{ asset('assets/css/main.css') }}" rel="stylesheet" >
+		<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" >
+		<link rel="icon" href="images/logo2.png">
+		<style>
+			.w-5{
+				display:none;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="tabbing" style = "position:absolute;">
+			☰
+		</div>
+		<div id="tabModal" class="modal" style="align-items:center;">
+			
+				<div id="tabIn" style="background-color:rgb(255, 255, 255); width:20em;text-align: center;">
+					<span class="closeTabbing" style="cursor:default; color: rgb(243, 0, 0);cursor: pointer; font-weight: 900px; border-bottom: 1px solid rgb(185, 19, 19);margin-bottom:5em;"> Exit</span>
+					
+					<nav id="nav">
+						<ul>
+							<li><a href="/Instructor" id="top-link"><span class="icon solid fa-home"> My Subjects</span></a></li>
+							<li><a href="/Profile-" id="portfolio-link"><span class="icon solid fa-user"> Profile</span></a></li>
+							<li><a href="/Notifications-" id="about-link"><span class="icon solid fa-box"> Notifications</span></a></li>
+							<li><a href="/Reports" id="contact-link"><span class="icon solid fa-envelope"> Reports</span></a></li>
+							<li><a href="/logout" id="contact-link"><span class="icon solid fa-key"> Log Out</span></a></li>
+						</ul>
+					</nav>
+				</div>
+			
+		</div>
+		<!-- Header -->
+	
+
+		<!-- Main -->
+			<div id="main" style="margin-left:0;">
+				
+              
+			
+			  
+			   <!-- Start of Modal For Deleting Subjects -->
+			   <div id="modalDS" class="modal" >
+				<div class="form" style="width:80%;margin-right: 10%;
+				margin-left: 10%;">
+					<span class="closeDS" style="cursor:default; color: rgb(228, 81, 81);cursor: pointer; font-weight: 900px;  "> Exit</span>
+					<div class="line"></div>
+						<div>
+							Select Subject/Subjects to delete
+						</div>
+						<table border="2" style="margin-top:1em;transform: scale(.9);">
+								
+							<tr style="color:rgb(29, 160, 29);">
+							
+								
+								<td >Subject Name</td>
+								<td>Subject Description</td>
+								<td></td>
+							</tr>
+						   @foreach($subjj as $sj)
+						   
+						   <tr>
+						
+ 							
+							<td>{{$sj['grade_level']}} {{$sj['subject_name']}}</td>
+							<td>{{$sj['subject_desc']}}</td>
+							
+							<td style="color:rgb(197, 46, 172);">
+								<a href={{"edit/".$sj['id']}} id="myBtn">Edit</a>
+								
+								-or-
+								<a href={{"delete/".$sj['id']}} onclick="return confirm('are you sure you want to delete this subject? this action is irreversible')">Delete</a>
+								
+								
+								
+							</td>
+						   
+						</tr>
+						
+						   @endforeach
+						  
+						</table>
+						
+				</div>
+				</div>
+			   <!-- End of Modal For Deleting Subjects -->
+
+			  <!-- modal -->
+			 
+			
+
+			<div id="myModalSubject" class="modal" >
+			
+				 <div >
+					
+					 <div class="modalformwrapper">
+						
+						
+
+
+						 <div class="form" style="text-align: center; border-radius: 1em;">
+							
+							 <form action="addsub" method="POST">
+								@csrf
+								 <div style="border-bottom: solid rgb(94, 94, 94) 1px;">
+									<span class="closeS" style="cursor:default; color: rgb(248, 0, 0);cursor: pointer; font-weight: 900px; transition: 0.6s; "> Cancel</span>
+								</div>
+								
+							
+								<div class="title">
+									
+									<h1 style="color:  rgb(255, 255, 255);font-size:larger; padding-top: 2em; padding-bottom: 1em;">Input Subject Details</h1>
+									
+								</div>
+								
+								
+								 <div class="inputfield" >
+									<label>Grade Level</label>
+									<select name="grade_level" id="" required style="padding:0;padding-left:1em;">
+										<option value="">Choose Grade Level 🔻</option>
+										<option value="Grade 1">Grade 1</option>
+										<option value="Grade 2">Grade 2</option>
+										<option value="Grade 3">Grade 3</option>
+										<option value="Grade 4">Grade 4</option>
+										<option value="Grade 5">Grade 5</option>
+										<option value="Grade 6">Grade 6</option>
+									 </select>
+									
+									 <label>Subject Name</label>
+									 <input type="hidden" name="teacher_id" value="{{$LoggedUserInfo['id']}}">
+									 
+									 <input type="text" class="input" id="subjectN" placeholder="example( Math )" name="subjectN" required>
+								 </div>
+								 <div class="inputfield">
+									 <label >Subject Description</label>
+									 <textarea name="subjectD" id="subjectD"  class="textarea" required ></textarea>
+								 </div>
+								 <div class="inputfield" >
+									 <input type="submit" name="myBtn"  class="btn" value="proceed">
+								 </div>
+								
+								 	
+							
+							 </form>
+						 </div>
+					 </div>
+				 </div>
+				
+			 </div> 
+			
+              <!-- end of modal -->
+
+
+				<!-- Intro -->
+					<!-- <section id="top" class="one dark cover">
+						<div class="container">
+
+						</div>
+					</section> -->
+
+				<!-- Portfolio -->
+					 <section id="portfolio" class="two" style="background-color: rgb(255, 255, 255); color:rgb(136, 136, 136);">
+						<div class="container">
+						
+							<div style="text-align: center; background-color: rgb(255, 255, 255);">
+								<h1 style="color:rgb(107, 107, 107);display:inline-block;background-color:transparent;transform:scale(1.5,1.5);">My Subjects</h1>
+								<p style="color:rgb(116, 116, 116);">Your subjects are displayed here.</p>
+								<button id="myBtnSubject" >New Subject</button>
+								<button id="myBtnD" >Edit/Delete</button>
+							</div>
+							
+
+							
+
+							<div class="row" style="margin-top:1em;	">
+							{{-- cards --}}
+							@foreach($subj as $subjj)
+								<div class="col-4 col-12-mobile" id="mycard">
+									<article class="item" >
+										<a href={{"Subject/".$subjj['id']."/"."-"."/"."-"}} class="image fit" type="submit"><img src="images/img1.jpg" alt="can't load image" /></a>
+										<header style="background-color:transparent;">
+											<a href={{"Subject/".$subjj['id']."/"."-"."/"."-"}}  class="tooltip" style="padding:0;">{{$subjj['grade_level']}} {{$subjj['subject_name']}}
+											<span class="tooltiptext">{{$subjj['subject_desc']}}</span> </a>
+											<p class="tooltiptext" style="color:rgb(85, 85, 85);"></p>
+											
+											
+										</header>
+									</article>
+								</div>
+							@endforeach
+							
+							
+							</div>
+							
+						<div style="margin-top:1.5em;">
+							{{$subj->links('pagination::tailwind')}}
+						</div>
+							
+						</div>
+					</section> 
+				
+		
+
+			</div>
+
+	
+	
+
+		<!-- Scripts -->
+			<script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('assets/js/jquery.scrolly.min.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('assets/js/jquery.scrollex.min.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('assets/js/browser.min.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('assets/js/breakpoints.min.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('assets/js/util.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('assets/js/main.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('assets/js/deletesubjects.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('assets/js/opentabbing.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('assets/js/addsubject.js') }}"></script>
+			
+			
+	</body>
+</html>

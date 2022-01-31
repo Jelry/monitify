@@ -1,0 +1,59 @@
+<form action="{{route ('auth.save')}}" method="post">
+										
+			@if(Session::get('success'))
+
+			<div style="background-color: rgb(74, 212, 69);color:rgb(255, 255, 255); padding:1em;border-radius:1em; margin:1em;padding:1em;">
+				{{Session::get('success')}}
+			</div>
+	
+			@endif
+			@if(Session::get('fail'))
+
+			<div style="background-color: rgb(212, 69, 69);color:rgb(255, 255, 255); padding:1em;border-radius:1em; margin:1em;padding:1em;">
+				{{Session::get('fail')}}
+			</div>
+	
+			@endif
+			@csrf
+			
+			<label for="name"><a>Full Name</a></label>
+			<input type="text" name="name"  required>
+			<label for="email"><a>Email(Gmail)</a></label>
+			<input type="text" name="email" class="input" required>
+			<label for="phonenumber"><a>Phone Number</a></label>
+			<input type="number" name="phonenumber" class="input" required style="border-radius:11px;border-outline:none;border-color:rgb(161, 161, 161);height:1.5em;"> <br>
+			<label for="School"><a> Select School</a></label>
+			<select  id="school" class="dropdown" name="School" style="width: 10em; " required>
+				<option value="Jolencio R. Alberca Elementary School(JRAES)">Jolencio R. Alberca Elementary School(JRAES)</option>
+				
+				</select>
+			 <br> <br>
+			 <label for="usertype"><a style="color:red;">*</a>Select User Type <a style="color:red;">*</a></label>
+			 <select  id="Utype" class="dropdown" name="usertype" style="width: 10em; " onchange="hehe()" required>
+				 <option value="" style="text-align: right;">Select Usertype🔻</option>
+				 <option value="teacher">Teacher</option>
+				 <option value="student">Student</option>
+				 
+				 </select>
+				 <div id="pop" style="display:none;">
+				 <label for="creation_code"><a style="color:red;">*</a><a>Creation Code</a><a style="color:red;">*</a></label>
+			<input id="p" type="text" name="creation_code" class="input" required>
+				 </div>
+				<div id="pop2" style="display:none">
+					<select name="grade_level" id="pp" required style="padding:0;padding-left:1em;">
+						<option value="">Choose Grade Level 🔻</option>
+						<option value="Grade 1">Grade 1</option>
+						<option value="Grade 2">Grade 2</option>
+						<option value="Grade 3">Grade 3</option>
+						<option value="Grade 4">Grade 4</option>
+						<option value="Grade 5">Grade 5</option>
+						<option value="Grade 6">Grade 6</option>
+					 </select>
+				</div>
+			  <br> <br>
+			<label for="username"><a>Username</a></label>
+			<input type="text" name="username" class="input" required>
+			<label for="password"><a>Password</a></label>
+			<input type="password" name="password" class="input" required> <br>
+			<input type="submit" name="login" value="Create Account" class="btnLogin">
+			</form>
